@@ -1,1 +1,1 @@
-{ "version": 1, "include": ["/api/keystatic/*"], "exclude": ["/_astro/*", "/assets/*", "/*.html"] }
+{ "version": 1, "include": ["/api/keystatic/*"], "exclude": ["/*"] }

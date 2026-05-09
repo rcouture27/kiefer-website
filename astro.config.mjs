@@ -1,9 +1,9 @@
 import { defineConfig } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
-import cloudflare from "@astrojs/cloudflare";
 import keystatic from "@keystatic/astro";
 import react from "@astrojs/react";
 import markdoc from "@astrojs/markdoc";
+import cloudflare from "@astrojs/cloudflare";
 
 export default defineConfig({
   server: {
@@ -22,5 +22,9 @@ export default defineConfig({
     },
   },
   integrations: [react(), markdoc(), keystatic()],
+  output: "server",
   adapter: cloudflare(),
+  prerender: {
+    concurrency: 1,
+  },
 });

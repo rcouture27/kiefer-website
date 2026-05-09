@@ -1,5 +1,6 @@
 import { defineConfig } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
+import cloudflare from "@astrojs/cloudflare";
 import keystatic from "@keystatic/astro";
 import react from "@astrojs/react";
 import markdoc from "@astrojs/markdoc";
@@ -21,5 +22,5 @@ export default defineConfig({
     },
   },
   integrations: [react(), markdoc(), keystatic()],
-  output: "static",
+  adapter: cloudflare(),
 });

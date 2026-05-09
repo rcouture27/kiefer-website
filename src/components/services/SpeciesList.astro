@@ -1,0 +1,20 @@
+---
+// Species badge component for listing handled animals
+interface Props {
+  species: string[];
+}
+
+const { species } = Astro.props;
+---
+
+<div class="flex flex-wrap gap-2" role="list" aria-label="Species we handle">
+  {species.map((animal) => (
+    <span
+      role="listitem"
+      class="inline-flex items-center gap-1.5 bg-kt-green-dark/5 text-kt-green-dark px-3 py-1.5 rounded-full text-sm font-medium"
+    >
+      <span class="w-1.5 h-1.5 bg-kt-green rounded-full"></span>
+      {animal}
+    </span>
+  ))}
+</div>

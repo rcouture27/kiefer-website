@@ -1,0 +1,22 @@
+---
+// Home page — main landing
+export const prerender = true;
+import BaseLayout from "@layouts/BaseLayout.astro";
+import HeroSection from "@components/home/HeroSection.astro";
+import ServiceHighlights from "@components/home/ServiceHighlights.astro";
+import SpeciesSection from "@components/home/SpeciesSection.astro";
+import TrustSection from "@components/home/TrustSection.astro";
+import ServiceAreaSection from "@components/home/ServiceAreaSection.astro";
+---
+
+<BaseLayout>
+  <slot name="head">
+    <title>Kiefer Tactical & Wildlife Services | Wildlife Control & Gunsmith NH</title>
+  </slot>
+
+  <HeroSection />
+  <ServiceHighlights />
+  <SpeciesSection />
+  <TrustSection />
+  <ServiceAreaSection />
+</BaseLayout>

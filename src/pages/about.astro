@@ -1,0 +1,140 @@
+---
+// About page
+export const prerender = true;
+import BaseLayout from "@layouts/BaseLayout.astro";
+import siteConfig from "@config/site";
+import CtaButton from "@components/ui/CtaButton.astro";
+
+const credentials = [
+  "New Hampshire Nuisance Wildlife Control Operator (Permitted)",
+  "Listed on WildlifeHelp.org — endorsed by government wildlife agencies",
+  "Supported by the Wildlife Management Institute",
+  "Northeast Wildlife Damage Management Cooperative member",
+  "Professional gunsmith with precision craftsmanship experience",
+  "Fully insured for your protection",
+];
+
+const values = [
+  {
+    icon: "🤝",
+    title: "Honesty",
+    description: "We give you a straight answer and a fair price. No upsells, no surprises.",
+  },
+  {
+    icon: "🎯",
+    title: "Effectiveness",
+    description: "We don't just treat symptoms — we solve the problem so it doesn't come back.",
+  },
+  {
+    icon: "🌿",
+    title: "Humane Practice",
+    description: "We respect wildlife and use the most humane methods available for each situation.",
+  },
+  {
+    icon: "⚡",
+    title: "Speed",
+    description: "Wildlife problems need fast action. We respond quickly and get the job done.",
+  },
+];
+---
+
+<BaseLayout>
+  <slot name="head">
+    <title>About | Kiefer Tactical & Wildlife Services</title>
+    <meta name="description" content="Learn about Brian Kiefer, our mission, and why we're the trusted wildlife control and gunsmith professionals in Southern New Hampshire." />
+  </slot>
+
+  <!-- Hero -->
+  <section class="bg-kt-dark py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <span class="text-kt-accent font-semibold text-sm uppercase tracking-wider">About Us</span>
+      <h1 class="text-4xl md:text-5xl font-bold text-white mt-3 mb-6">
+        Meet Brian Kiefer
+      </h1>
+      <p class="text-white/70 text-lg max-w-2xl mx-auto">
+        The guy behind Kiefer Tactical & Wildlife Services — your local wildlife expert and gunsmith in Auburn, NH.
+      </p>
+    </div>
+  </section>
+
+  <!-- Bio -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-3xl font-bold text-kt-dark mb-6">Your Local Expert</h2>
+          <div class="prose prose-lg text-kt-muted leading-relaxed space-y-4">
+            <p>
+              Brian Kiefer is the founder and operator of <strong class="text-kt-dark">Kiefer Tactical & Wildlife Services LLC</strong>,
+              based right here in Auburn, New Hampshire.
+            </p>
+            <p>
+              With a deep understanding of local wildlife behavior and a background in tactical precision,
+              Brian brings a unique skill set to nuisance wildlife control. Whether it's raccoons in the
+              attic, squirrels in the walls, or a skunk under the deck — Brian knows how to handle it
+              quickly, humanely, and effectively.
+            </p>
+            <p>
+              On the gunsmith side, Brian applies the same attention to detail and craftsmanship.
+              From routine maintenance to custom work, every firearm that comes through the shop gets
+              the care and precision it deserves.
+            </p>
+            <p>
+              Brian is a permitted New Hampshire Nuisance Wildlife Control Operator, listed on
+              WildlifeHelp.org, and backed by regional wildlife management agencies. When you call
+              Kiefer Tactical, you're getting a professional who takes pride in honest work and
+              lasting results.
+            </p>
+          </div>
+        </div>
+        <div class="bg-kt-sand rounded-2xl p-8">
+          <h3 class="text-xl font-bold text-kt-dark mb-4">Credentials & Affiliations</h3>
+          <ul class="space-y-3">
+            {credentials.map((cred) => (
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-kt-green flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-kt-muted">{cred}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Values -->
+  <section class="py-20 bg-kt-sand">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <span class="text-kt-green font-semibold text-sm uppercase tracking-wider">Our Values</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-kt-dark mt-3">
+          What We Stand For
+        </h2>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {values.map((v) => (
+          <div class="text-center">
+            <div class="text-5xl mb-4">{v.icon}</div>
+            <h3 class="text-lg font-bold text-kt-dark mb-2">{v.title}</h3>
+            <p class="text-kt-muted leading-relaxed">{v.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-kt-green-dark text-white text-center">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold mb-4">Work With a Professional You Can Trust</h2>
+      <p class="text-white/70 mb-8">
+        Whether it's wildlife or gunsmith work, we deliver results with integrity.
+      </p>
+      <CtaButton href="/contact" variant="primary" size="md">
+        Get In Touch
+      </CtaButton>
+    </div>
+  </section>
+</BaseLayout>

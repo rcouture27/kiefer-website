@@ -1,0 +1,61 @@
+---
+// Species handled section for the homepage
+import SpeciesList from "@components/services/SpeciesList.astro";
+
+const species = [
+  "Raccoon",
+  "Tree Squirrel",
+  "Skunk",
+  "Snake",
+  "Bat",
+  "Coyote",
+  "Beaver",
+  "Opossum",
+  "Fox",
+  "Mole",
+  "Rabbit",
+  "Porcupine",
+  "Woodchuck",
+  "Chipmunk",
+];
+---
+
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <span class="text-kt-green font-semibold text-sm uppercase tracking-wider">Wildlife Expertise</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-kt-dark mt-3 mb-4">
+          We Handle All Common Nuisance Wildlife
+        </h2>
+        <p class="text-kt-muted text-lg leading-relaxed mb-8">
+          Whether it's something in your attic, under your deck, or around your property — don't wait for it to get worse.
+          We handle all common nuisance species throughout Southern New Hampshire with humane, effective methods.
+        </p>
+        <SpeciesList species={species} />
+      </div>
+      <div class="bg-kt-green-dark rounded-2xl p-8 text-white">
+        <h3 class="text-xl font-bold mb-4">⚠️ Why Wait?</h3>
+        <p class="text-white/80 leading-relaxed mb-6">
+          Wildlife problems don't solve themselves. Left unchecked, nuisance animals can cause:
+        </p>
+        <ul class="space-y-3">
+          {[
+            "Structural damage to your home",
+            "Health hazards and contamination",
+            "Electrical damage from chewed wiring",
+            "Noise disturbances that disrupt sleep",
+            "Aggressive behavior as populations grow",
+          ].map((item) => (
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-kt-accent flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01M12 3l9.5 16.5H2.5L12 3z" />
+              </svg>
+              <span class="text-white/80">{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

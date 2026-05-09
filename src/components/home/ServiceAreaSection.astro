@@ -1,0 +1,47 @@
+---
+// Service area section
+import siteConfig from "@config/site";
+import CtaButton from "@components/ui/CtaButton.astro";
+---
+
+<section class="py-20 bg-kt-green-dark text-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <span class="text-kt-accent font-semibold text-sm uppercase tracking-wider">Service Area</span>
+        <h2 class="text-3xl md:text-4xl font-bold mt-3 mb-4">
+          Serving Southern New Hampshire
+        </h2>
+        <p class="text-white/70 text-lg leading-relaxed mb-6">
+          Based in Auburn, NH, we provide wildlife control and gunsmith services throughout the greater
+          Southern New Hampshire area. No problem is too big or too small.
+        </p>
+        <div class="bg-white/10 rounded-xl p-6 mb-6">
+          <div class="flex items-center gap-3 mb-3">
+            <svg class="w-5 h-5 text-kt-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            <span class="font-semibold">{siteConfig.address}</span>
+          </div>
+          <p class="text-white/60 text-sm">
+            Licensed &amp; permitted in New Hampshire
+          </p>
+        </div>
+        <CtaButton href="/contact" variant="primary" size="md">
+          Check Your Area
+        </CtaButton>
+      </div>
+      <!-- Map placeholder — using a styled block since we can't embed Google Maps without an API key -->
+      <div class="bg-white/5 rounded-2xl h-72 lg:h-96 border border-white/10 flex items-center justify-center">
+        <div class="text-center">
+          <svg class="w-16 h-16 text-kt-accent mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+          </svg>
+          <p class="text-white/60 font-medium">Southern New Hampshire</p>
+          <p class="text-white/40 text-sm mt-1">Auburn &amp; surrounding areas</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

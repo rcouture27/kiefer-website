@@ -1,0 +1,65 @@
+---
+// Service highlights for the homepage
+import ServiceCard from "@components/services/ServiceCard.astro";
+import CtaButton from "@components/ui/CtaButton.astro";
+
+const highlights = [
+  {
+    title: "Humane Animal Removal",
+    description: "Safe, effective removal of raccoons, squirrels, skunks, bats, and other nuisance animals from your property.",
+    icon: "🦝",
+    category: "wildlife" as const,
+  },
+  {
+    title: "Nuisance Wildlife Trapping",
+    description: "Professional trapping services for coyotes, foxes, opossums, moles, woodchucks, and more across Southern NH.",
+    icon: "🪤",
+    category: "wildlife" as const,
+  },
+  {
+    title: "Property Protection",
+    description: "Exclusion and prevention services to keep wildlife out of your attic, walls, deck, and yard for good.",
+    icon: "🛡️",
+    category: "wildlife" as const,
+  },
+  {
+    title: "Expert Gunsmith Services",
+    description: "Professional firearm repair, fitting, custom work, and maintenance. Quality craftsmanship you can trust.",
+    icon: "🔧",
+    category: "gunsmith" as const,
+  },
+];
+---
+
+<section class="py-20 bg-kt-sand">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-14">
+      <span class="text-kt-green font-semibold text-sm uppercase tracking-wider">What We Do</span>
+      <h2 class="text-3xl md:text-4xl font-bold text-kt-dark mt-3 mb-4">
+        Professional Services You Can Trust
+      </h2>
+      <p class="text-kt-muted max-w-2xl mx-auto text-lg">
+        From unwanted wildlife in your attic to precision gunsmith work — we deliver results with integrity.
+      </p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+      {highlights.map((service) => (
+        <ServiceCard
+          title={service.title}
+          description={service.description}
+          icon={service.icon}
+          category={service.category}
+          link="/services"
+          linkText="See all services"
+        />
+      ))}
+    </div>
+
+    <div class="text-center">
+      <CtaButton href="/services" variant="secondary" size="md">
+        View All Services
+      </CtaButton>
+    </div>
+  </div>
+</section>

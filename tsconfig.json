@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "jsx": "preserve",
+    "strict": true,
+    "verbatimModuleSyntax": true,
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "baseUrl": ".",
+    "paths": {
+      "@config/*": ["./src/config/*"],
+      "@config": ["./src/config"],
+      "@styles/*": ["./src/styles/*"],
+      "@styles": ["./src/styles"],
+      "@components/*": ["./src/components/*"],
+      "@components": ["./src/components"],
+      "@layouts/*": ["./src/layouts/*"],
+      "@layouts": ["./src/layouts"],
+      "@utils/*": ["./src/utils/*"],
+      "@utils": ["./src/utils"]
+    },
+    "types": ["astro/client"]
+  },
+  "include": ["src/**/*.ts", "src/**/*.astro"],
+  "exclude": ["node_modules", "dist"]
+}

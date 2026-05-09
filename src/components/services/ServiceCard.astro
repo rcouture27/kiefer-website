@@ -1,0 +1,44 @@
+---
+// Service card component
+interface Props {
+  title: string;
+  description: string;
+  icon?: string;
+  link?: string;
+  linkText?: string;
+  category?: "wildlife" | "gunsmith";
+}
+
+const { title, description, icon, link, linkText = "Learn more", category = "wildlife" } = Astro.props;
+
+const borderColor = category === "wildlife" ? "border-l-kt-green" : "border-l-kt-accent";
+const badgeColor = category === "wildlife" ? "bg-kt-green text-white" : "bg-kt-accent text-white";
+---
+
+<div class={`service-card bg-white rounded-xl border-l-4 ${borderColor} shadow-sm p-6 h-full`}>
+  <div class="flex items-start gap-4">
+    {icon && (
+      <div class="text-3xl flex-shrink-0">{icon}</div>
+    )}
+    <div class="flex-1">
+      <div class="flex items-center gap-2 mb-2">
+        <h3 class="text-xl font-bold text-kt-dark">{title}</h3>
+        <span class={`text-xs font-medium px-2 py-0.5 rounded-full ${badgeColor}`}>
+          {category === "wildlife" ? "Wildlife" : "Gunsmith"}
+        </span>
+      </div>
+      <p class="text-kt-muted leading-relaxed mb-4">{description}</p>
+      {link && (
+        <a
+          href={link}
+          class="inline-flex items-center gap-1 text-kt-green font-semibold hover:text-kt-accent transition-colors"
+        >
+          {linkText}
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </a>
+      )}
+    </div>
+  </div>
+</div>

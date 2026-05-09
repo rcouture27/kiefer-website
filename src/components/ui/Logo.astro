@@ -1,0 +1,39 @@
+---
+// Primary logo component
+// Supports main (wildlife) and secondary (gunsmith) logos
+interface Props {
+  variant?: "main" | "secondary";
+  size?: "sm" | "md" | "lg";
+  className?: string;
+}
+
+const { variant = "main", size = "md", className = "" } = Astro.props;
+
+const sizePx = {
+  sm: 80,
+  md: 96,
+  lg: 120,
+};
+
+// Logo filenames
+const logoMain = "/assets/logos/logo-main.jpg";
+const logoSecondary = "/assets/logos/logo-secondary.jpg";
+
+const logoSrc = variant === "main" ? logoMain : logoSecondary;
+const alt =
+  variant === "main"
+    ? "Kiefer Tactical & Wildlife Services - Main Logo"
+    : "Kiefer Tactical & Wildlife Services - Gunsmith Logo";
+
+const px = sizePx[size];
+---
+
+<img
+  src={logoSrc}
+  alt={alt}
+  width={px}
+  height={px}
+  style="object-fit: contain;"
+  class={className}
+  loading={size === "sm" ? "eager" : "lazy"}
+/>

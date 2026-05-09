@@ -1,0 +1,64 @@
+/*
+ * Kiefer Tactical & Wildlife Services
+ * Global styles — Tailwind v4 handles utility classes.
+ * This file is for custom component styles, animations, and overrides.
+ */
+
+/* Custom color tokens (used with Tailwind via @theme) */
+@import "tailwindcss";
+
+@theme {
+  --color-kt-dark: #1a1f1c;
+  --color-kt-green: #2d4a3e;
+  --color-kt-green-light: #3d6b5a;
+  --color-kt-green-dark: #1e3329;
+  --color-kt-accent: #c8943e;
+  --color-kt-accent-hover: #b07d30;
+  --color-kt-sand: #f4f0e8;
+  --color-kt-sand-dark: #e8e0d0;
+  --color-kt-body: #2c2c2c;
+  --color-kt-muted: #6b6b6b;
+  --color-kt-white: #fafaf8;
+  --color-kt-border: #d4cfc4;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Image rendering */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Custom gallery hover */
+.gallery-item {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+/* Button hover animation */
+.btn-primary {
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(200, 148, 62, 0.3);
+}
+
+/* Service card hover */
+.service-card {
+  transition: all 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}

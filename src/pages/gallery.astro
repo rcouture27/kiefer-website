@@ -1,0 +1,134 @@
+---
+// Gallery page
+export const prerender = true;
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+// Gallery images — references the wildlife pics dropped in the project
+// Each image will be served from /assets/wildlife/ in production
+const galleryImages = [
+  // Wildlife photos (first batch - main highlights)
+  { src: "/assets/wildlife/668593411_122104428854847680_8535970217066602300_n.jpg", alt: "Wildlife removal work" },
+  { src: "/assets/wildlife/669642476_122104702286847680_7571555512272294635_n.jpg", alt: "Nuisance animal control" },
+  { src: "/assets/wildlife/674263452_122106647762847680_2272932121752994054_n.jpg", alt: "Wildlife trapping service" },
+  { src: "/assets/wildlife/675814449_122106647936847680_4529582672526200170_n.jpg", alt: "Animal removal in Southern NH" },
+  { src: "/assets/wildlife/676597073_122107076354847680_6617761617348542145_n.jpg", alt: "Property protection services" },
+  { src: "/assets/wildlife/676618678_122106647894847680_1261145336936633536_n.jpg", alt: "Wildlife control work" },
+  { src: "/assets/wildlife/676653400_122106053468847680_6129082448423937337_n.jpg", alt: "Humane wildlife removal" },
+  { src: "/assets/wildlife/676878368_122106647804847680_6115622954559497992_n.jpg", alt: "Nuisance wildlife service" },
+  { src: "/assets/wildlife/677757291_122106647846847680_878039419373874663_n.jpg", alt: "Wildlife trapping NH" },
+  { src: "/assets/wildlife/678374175_122107076210847680_4434488874267307284_n.jpg", alt: "Animal control Auburn NH" },
+  { src: "/assets/wildlife/678564811_122107076318847680_4683185586906175113_n.jpg", alt: "Wildlife services New Hampshire" },
+  { src: "/assets/wildlife/680887439_122107076258847680_2656500181976493161_n.jpg", alt: "Professional animal removal" },
+  { src: "/assets/wildlife/681219196_122107768964847680_3478485330745133538_n.jpg", alt: "Wildlife management service" },
+  { src: "/assets/wildlife/681757644_122107769048847680_8979665069942644573_n.jpg", alt: "Humane trapping services" },
+  { src: "/assets/wildlife/682354784_122107769006847680_6064180553464362879_n.jpg", alt: "Raccoon removal work" },
+  { src: "/assets/wildlife/683456772_122107768916847680_6969474240885742486_n.jpg", alt: "Wildlife control Southern NH" },
+  { src: "/assets/wildlife/683625399_122107769102847680_8023656472729295317_n.jpg", alt: "Nuisance animal trapping" },
+  { src: "/assets/wildlife/683757530_122108207582847680_4815491497300775887_n.jpg", alt: "Animal control service" },
+  { src: "/assets/wildlife/685965603_122108935940847680_7357330529048311300_n.jpg", alt: "Wildlife removal NH" },
+  { src: "/assets/wildlife/687258695_122108207666847680_3981855542529057426_n.jpg", alt: "Property wildlife protection" },
+  { src: "/assets/wildlife/687779528_122108935754847680_183036791453460599_n.jpg", alt: "Wildlife exclusion services" },
+  { src: "/assets/wildlife/687886061_122109298664847680_8990603351826388024_n.jpg", alt: "Nuisance wildlife control" },
+  { src: "/assets/wildlife/688709798_122108207618847680_5840043198108042133_n.jpg", alt: "Animal trapping service" },
+  { src: "/assets/wildlife/688780119_122108935718847680_1893348905486519601_n.jpg", alt: "Wildlife removal Auburn NH" },
+  { src: "/assets/wildlife/688846402_122109298490847680_1430559927005214852_n.jpg", alt: "Professional wildlife services" },
+  { src: "/assets/wildlife/688902271_122108935862847680_1874682420656910302_n.jpg", alt: "Humane animal control" },
+  { src: "/assets/wildlife/688941033_122108935814847680_7387920150166509521_n.jpg", alt: "Wildlife trapping Auburn" },
+  { src: "/assets/wildlife/688999049_122109298574847680_6031114206037652161_n.jpg", alt: "Wildlife damage prevention" },
+  { src: "/assets/wildlife/689006208_122109298532847680_5958228697599098087_n.jpg", alt: "Animal removal New Hampshire" },
+  { src: "/assets/wildlife/689013531_122109298616847680_2408138209597694248_n.jpg", alt: "Wildlife services Southern NH" },
+  { src: "/assets/wildlife/690879293_122108935640847680_1795279227860776658_n.jpg", alt: "Nuisance wildlife removal" },
+  { src: "/assets/wildlife/691053532_122109298442847680_7750996320463429778_n.jpg", alt: "Professional wildlife trapping" },
+];
+
+// Filter tabs
+const tabs = [
+  { id: "all", label: "All Photos" },
+  { id: "wildlife", label: "Wildlife" },
+];
+---
+
+<BaseLayout>
+  <slot name="head">
+    <title>Gallery | Kiefer Tactical & Wildlife Services</title>
+    <meta name="description" content="See our wildlife control work in Southern New Hampshire. Real results from real jobs." />
+  </slot>
+
+  <!-- Hero -->
+  <section class="bg-kt-dark py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <span class="text-kt-accent font-semibold text-sm uppercase tracking-wider">Gallery</span>
+      <h1 class="text-4xl md:text-5xl font-bold text-white mt-3 mb-6">
+        Our Work in Action
+      </h1>
+      <p class="text-white/70 text-lg max-w-2xl mx-auto">
+        Real photos from our wildlife control jobs across Southern New Hampshire.
+      </p>
+    </div>
+  </section>
+
+  <!-- Gallery Grid -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Filter Tabs -->
+      <div class="flex items-center gap-2 mb-8 overflow-x-auto pb-2" id="gallery-filters">
+        {tabs.map((tab, i) => (
+          <button
+            class={`px-4 py-2 rounded-lg text-sm font-medium whitespace-nowrap transition-colors ${
+              i === 0
+                ? "bg-kt-green text-white"
+                : "bg-kt-sand text-kt-muted hover:bg-kt-sand-dark"
+            }`}
+            data-filter={tab.id}
+          >
+            {tab.label}
+          </button>
+        ))}
+      </div>
+
+      <!-- Photo Grid -->
+      <div class="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4" id="gallery-grid">
+        {galleryImages.map((img) => (
+          <div class="gallery-item break-inside-avoid rounded-xl overflow-hidden shadow-sm border border-kt-border">
+            <div class="aspect-[4/3] bg-kt-sand flex items-center justify-center relative group">
+              <img
+                src={img.src}
+                alt={img.alt}
+                class="w-full h-full object-cover"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-kt-dark/0 group-hover:bg-kt-dark/40 transition-colors duration-300 flex items-center justify-center">
+                <span class="text-white opacity-0 group-hover:opacity-100 transition-opacity font-medium text-sm">
+                  {img.alt}
+                </span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Note -->
+      <div class="text-center mt-12 p-6 bg-kt-sand rounded-xl">
+        <p class="text-kt-muted text-sm">
+          📸 These photos showcase our wildlife control work. More images added as we complete more jobs.
+          For gunsmith project photos, contact us directly.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filter script -->
+  <script>
+    document.querySelectorAll("[data-filter]").forEach((button) => {
+      button.addEventListener("click", () => {
+        // Update active tab
+        document.querySelectorAll("[data-filter]").forEach((btn) => {
+          btn.className =
+            "px-4 py-2 rounded-lg text-sm font-medium whitespace-nowrap transition-colors bg-kt-sand text-kt-muted hover:bg-kt-sand-dark";
+        });
+        button.className =
+          "px-4 py-2 rounded-lg text-sm font-medium whitespace-nowrap transition-colors bg-kt-green text-white";
+      });
+    });
+  </script>
+</BaseLayout>

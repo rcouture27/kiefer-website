@@ -1,0 +1,40 @@
+---
+// CTA Button component
+interface Props {
+  href: string;
+  variant?: "primary" | "secondary" | "outline";
+  size?: "sm" | "md" | "lg";
+  children: any;
+  className?: string;
+}
+
+const {
+  href,
+  variant = "primary",
+  size = "md",
+  children,
+  className = "",
+} = Astro.props;
+
+const variantClasses = {
+  primary:
+    "bg-kt-accent hover:bg-kt-accent-hover text-white shadow-md btn-primary",
+  secondary:
+    "bg-kt-green hover:bg-kt-green-light text-white shadow-md btn-primary",
+  outline:
+    "border-2 border-kt-accent text-kt-accent hover:bg-kt-accent hover:text-white btn-primary",
+};
+
+const sizeClasses = {
+  sm: "px-4 py-2 text-sm",
+  md: "px-6 py-3 text-base",
+  lg: "px-8 py-4 text-lg",
+};
+---
+
+<a
+  href={href}
+  class={`inline-flex items-center justify-center font-semibold rounded-lg whitespace-nowrap ${variantClasses[variant]} ${sizeClasses[size]} ${className}`}
+>
+  <slot />
+</a>
